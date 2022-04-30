@@ -19,22 +19,11 @@ def days_in_month(year, month):
         return months_list[month-1] # as list starts with 0
         
 def day_of_year(year, month, day):
-#
-# Write your new code here.
-#
+    no_of_days_year = 0    
+    for days in range(1, month):
+        no_of_days_year += days_in_month(year, month)
+    no_of_days_year = no_of_days_year + day
+    return no_of_days_year    
+        
 
-print(day_of_year(2000, 12, 31))
-
-test_years = [1900, 2000, 2016, 1987]
-test_months = [2, 2, 1, 11]
-test_results = [28, 29, 31, 30]
-for i in range(len(test_years)):
-	yr = test_years[i]
-	mo = test_months[i]
-	print(yr, mo, "->", end="")
-	result = days_in_month(yr, mo)
-	if result == test_results[i]:
-		print("OK")
-	else:
-		print("Failed")
-
+print(day_of_year(2000, 11, 31))
