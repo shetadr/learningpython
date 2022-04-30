@@ -1,0 +1,26 @@
+def is_year_leap(year):
+    if year % 4 == 0 and year % 100 != 0:
+        leapyear = True
+    elif year % 100 == 0 and year % 400 == 0:
+        leapyear = True
+    else:
+        leapyear = False
+    return leapyear;
+
+def days_in_month(year, month):
+# if month is not between 1 and 12
+    if month > 12 or month < 1:
+        return None
+# if year is leap year feb month has 29 and not leap than 28         
+    if month == 2 and is_year_leap(year) == True:
+        return 29
+    else:
+        months_list = [31,28,31,30,31,30,31,31,30,31,30,31]
+        return months_list[month-1] # as list starts with 0
+        
+def day_of_year(year, month, day):
+#
+# Write your new code here.
+#
+
+print(day_of_year(2000, 12, 31))
